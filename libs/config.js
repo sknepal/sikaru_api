@@ -1,3 +1,4 @@
+import logger from "./logger.js"
 module.exports = {
    database: "ps",
    username: "root",
@@ -6,6 +7,9 @@ module.exports = {
       host: "127.0.0.1",
       port: 3306,
       dialect: "mysql",
+	  logging: (sql) => {
+		   logger.info(`[${new Date()}] ${sql}`);
+	   },
       define: {
          underscored: true
      }
