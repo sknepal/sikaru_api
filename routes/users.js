@@ -16,9 +16,23 @@ module.exports = app=>{
 		    ]
 	   }
 	   
+	   var sortBy = req.query.sortBy ? req.query.sortBy : "created_date";
+	   if (req.query.date){
+	   			   var date = req.query.date;
+	   	   		}
+
+	   if (sortBy == "created_date"){
+	   			   if (date){
+	   				   criteria.created_at = {
+	   					   $lt: date
+	   				   }
+	   			   }
+	   }
+	   
 	   Users.findAll({
 		   where:criteria,
-		   attributes: ["id", "firstName", "lastName", "email"]
+		   attributes: ["id", "firstName", "lastName", "email"],
+		   limit: 10
 	   })
 	   .then(result => res.json(result))
 	   .catch(error => {
@@ -70,9 +84,29 @@ module.exports = app=>{
 	   
    	app.route("/users/:id/issues")
    	.get((req, res)=>{
+		var criteria = {
+			
+		}
+		
+ 	   var sortBy = req.query.sortBy ? req.query.sortBy : "created_date";
+	   
+ 	   if (req.query.date){
+ 	   			   var date = req.query.date;
+ 	   	   		}
+
+ 	   if (sortBy == "created_date"){
+ 	   			   if (date){
+ 	   				   criteria.created_at = {
+ 	   					   $lt: date
+ 	   				   }
+ 	   			   }
+ 	   		}
+	   
+			console.log(criteria);
     		   Users.findAll({
-					   include:[{ model: app.db.models.Issues, where: {id: req.params.id} }],
-				   attributes: { exclude: ['password', 'dob', 'phonenumber', 'sex', 'profession', 'address'] }
+				   include:[{ model: app.db.models.Issues, where: criteria, limit: 10}],
+				   attributes: { exclude: ['password', 'dob', 'phonenumber', 'sex', 'profession', 'address'] },
+				   where: {id: req.params.id}
     		   })
     		    .then(result => {
     		    	if(result){
