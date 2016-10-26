@@ -119,6 +119,38 @@ module.exports = app=>{
     				res.status(412).json({msg: error.message});
     			});
     	   });
+		   
+	app.route("/users/:id/comments")
+		   .get((req,res)=>{
+			   var date = "";
+			   if (req.query.date){
+				   date = req.query.date;
+			   }
+			   
+			   var criteria = {
+				   user_id: parseInt(req.params.id),
+				   created_at:{
+ 					   $lt: date
+ 				   }
+			   }
+			   console.log(criteria);
+		Users.findAll({
+			include: [{model: app.db.models.Comments, where: criteria, limit: 10}],
+			where: {id: parseInt(req.params.id)},
+			attributes: {exclude: ['password', 'dob', 'phonenumber', 'sex', 'profession', 'address']}
+		})
+	    .then(result => {
+	    	if(result){
+	    		res.json(result);
+	    	}else{
+	    		res.sendStatus(404);
+	    	}
+	    })
+		.catch(error => {
+			res.status(412).json({msg: error.message});
+		});
+			
+		   });
 	   
 	   
 	   

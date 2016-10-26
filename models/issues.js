@@ -1,7 +1,6 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  
   const Issues = sequelize.define('Issues', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -57,6 +56,7 @@ module.exports = function(sequelize, DataTypes) {
 	  classMethods:{
 		  associate: (models) => {
 			  Issues.belongsTo(models.Users);
+			  Issues.hasMany(models.Comments);
 		  }
 	  }
   });

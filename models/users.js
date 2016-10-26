@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     dob: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     phonenumber: {
       type: DataTypes.STRING,
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     sex: {
       type: DataTypes.STRING,
-      allowNull: false
+	  allowNull: true
     },
     profession: {
       type: DataTypes.STRING,
@@ -69,6 +69,7 @@ module.exports = function(sequelize, DataTypes) {
   	classMethods: {
 		associate: (models) => {
 			Users.hasMany(models.Issues);
+			Users.hasMany(models.Comments);
 		},
 		isPassword: (encodedPassword, password) => {
 			return bcrypt.compareSync(password, encodedPassword);
