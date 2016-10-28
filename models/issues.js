@@ -10,19 +10,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     category_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: false// ,
-      // references: {
-//         model: 'category',
-//         key: 'id'
-//       }
+      allowNull: false,
+      references: {
+        model: 'Categories',
+        key: 'id'
+      }
     },
     user_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: false// ,
-      // references: {
- //        model: 'user',
- //        key: 'id'
- //      }
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
     },
     title: {
       type: DataTypes.STRING,
@@ -56,7 +56,10 @@ module.exports = function(sequelize, DataTypes) {
 	  classMethods:{
 		  associate: (models) => {
 			  Issues.belongsTo(models.Users);
+			  Issues.belongsTo(models.Categories);
 			  Issues.hasMany(models.Comments);
+			  Issues.belongsToMany(models.Users, {as: 'Vote', through:models.Votes});
+			 // Issues.belongsToMany(models.Users, {through: models.Votes});// , foreignKey: 'issue_id'});
 		  }
 	  }
   });

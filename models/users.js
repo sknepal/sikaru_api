@@ -52,11 +52,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     role_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: false// ,
-//       references: {
-//         model: 'role',
-//         key: 'id'
-//       }
+      allowNull: false,
+      references: {
+        model: 'Roles',
+        key: 'id'
+      }
     }
   }, {
 	  hooks: {
@@ -70,6 +70,12 @@ module.exports = function(sequelize, DataTypes) {
 		associate: (models) => {
 			Users.hasMany(models.Issues);
 			Users.hasMany(models.Comments);
+			Users.belongsToMany(models.Issues, {as: 'Vote', through:models.Votes});
+			
+			
+			// Users.belongsToMany(models.Issues, {through: models.Votes });// , foreignKey: 'user_id'});
+			// Users.hasOne(models.Roles);
+			
 		},
 		isPassword: (encodedPassword, password) => {
 			return bcrypt.compareSync(password, encodedPassword);
