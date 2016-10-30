@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
   	classMethods: {
 		associate: (models) => {
 		    // Votes.belongsTo(models.Issues);
-// 		    Votes.belongsTo(models.Users);
+    // 		    Votes.belongsTo(models.Users);
 		}
 	}
   });

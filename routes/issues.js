@@ -2,10 +2,12 @@ module.exports = app => {
 	//exports.sequelize = sequelize;
    const Issues = app.db.models.Issues;
    const Votes = app.db.models.Votes;
+   const Users = app.db.models.Users;
+   const Categories = app.db.models.Categories;
   // const Votes  = app.db.models.Votes;
    app.route("/issues")
    	   //.all(app.auth.authenticate())
-       .get(app.auth.authenticate(),(req, res) => {
+       .get((req, res) => {
 		   //console.log(req.user.id);
 		   var criteria = {};
 		  
@@ -28,7 +30,7 @@ module.exports = app => {
 		   if (req.query.date){
 		   			   var date = req.query.date;
 		   	   		}
- 
+ 		 
 		   if (sortBy == "created_date"){
 		   			   if (date){
 		   				   criteria.created_at = {
@@ -52,18 +54,34 @@ module.exports = app => {
   //    }]
   //  });
    
-  var Votes = app.db.models.Votes;
+  //var Votes = app.db.models.Votes;
   console.log(criteria);
   //user_id: req.user.id
+  //exclude: ['address'],
           Issues.findAll({
-			  include:[ {model: app.db.models.Users, attributes: ["firstName", "lastName","user_photo"]}, 
-			  			{model: app.db.models.Categories, attributes:[ 'title']},
-			  { model: app.db.models.Users, as: 'Vote', attributes: [[app.db.sequelize.fn('COUNT', 'id'), 'count']], through: {attributes: []}
-			  			
-		   }],
+			//  attributes: {include:[[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'Count']]},
+			//  attributes: {include: [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'Votes_Count']]},
+			//  group: [app.db.sequelize.col('id')],
+			  group: ['Issues.id'],
+			 // attributes:[[app.db.sequelize.fn('COUNT', app.db.sequelize.col('issue_id')), 'count']]
+			 //  attributes: {include:[[app.db.sequelize.fn('COUNT', app.db.sequelize.col('id')), 'count']] },
+			  
+			  
+			  //attributes: [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'count']],
+			  include:[ 
+				  {model: Users, as: 'Vote', attributes: [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'count']], through: { attributes:[] }, duplicating:false  },
+				  {model: Users, attributes: ["firstName", "lastName","user_photo"], duplicating: false}, 
+				  {model: Categories, attributes:[ 'title'], duplicating: false},
+				//  duplicating: false
+			  //, attributes: {include: [[app.db.sequelize.fn('COUNT', 'issue_id'), 'count']]}, through: {attributes:[] }
+		 ],
+		   
+		 //attributes: {include: ['*']},
+		 //attributes:[[app.db.sequelize.fn('COUNT', app.db.sequelize.col('user_id')), 'count']],
+		// attributes:  [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Votes.user_id')), 'count']],
 			  			where: criteria,
-		   attributes: { exclude: ['address'] },
-			    		limit: 10
+		// required:true
+			    limit: 10
 							// through: {
 // 						 } }]//,
 			  // through: {Votes}
@@ -80,6 +98,7 @@ module.exports = app => {
  // 			  limit: 10
           })
 		  .then(function(result){
+			  
 			  //var response = res.json(result);
 			  //console.log(response);
 			  // var found = false;
@@ -101,6 +120,16 @@ module.exports = app => {
 			  
 			  //var entry = result[0];
 			  //console.log(entry);
+			  
+			  // var result = result.toJSON();
+  // 			//  console.log(result.Vote);
+  // 			  // console.log(result.Vote[0].count);
+  // 			  if (result.Vote[0]){
+  // 			  	result.votes = result.Vote[0].count;
+  // 			  	delete result.Vote;
+  // 			}
+			  
+			 
 			  return res.json(result);
 			  // result => res.json(result))
 			  
@@ -128,18 +157,69 @@ module.exports = app => {
 	   
    app.route("/issues/:id")
 	   //.all(app.auth.authenticate())
-	   .get((req,res) => {
+	   .get(app.auth.authenticate(),(req,res) => {
+		  // voted = 0;
+		app.db.sequelize.Promise.all([
 		   Issues.findOne({
-			   include:[{ model: app.db.models.Users}],
+			   include:[  
+				  {model: Users, as: 'Vote', attributes: [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'count']], through: {attributes:[]}, duplicating:false },
+				  {model: Users, attributes: ["firstName", "lastName","user_photo"], duplicating: false}, 
+				  {model: Categories, attributes:[ 'title'], duplicating: false}],
 			   where: {id: req.params.id} 
-		   })
-		    .then(result => {
-		    	if(result){
-		    		res.json(result);
-		    	}else{
-		    		res.sendStatus(404);
-		    	}
-		    })
+		   }),
+	//	   .then(function(result){
+			   //var result = result.toJSON();
+			   //console.log(results);
+			         //do something with results
+			         //you can also take the results to make another query and return the promise.
+			   
+			Votes.count({ where: {issue_id: req.params.id, user_id: req.user.id} }),
+			  ]).spread(function(result, count){
+				  console.log(result);
+				//  console.log(count);
+				  var result = result.toJSON();
+//
+// 				  if (result.Vote[0]){
+// 				  	result.votes = result.Vote[0].count;
+// 				  	delete result.Vote;
+// 				}
+//
+ 				  result.user_vote = count;
+				  return res.json(result);
+			  })         
+			  //   }).then(function(results) {
+			         //do something else
+					 //result["Voted"] = results;
+					 //res.json(result);
+				//	 console.log(result);
+				//	 return results;
+			 //    })
+	//	console.log("Outside" + voted);
+	// 					result = result.toJSON();
+				//	result.voted = 1;
+	// 					//result["Voted"] = c;
+	// 					//result.dataValues.voted = c;
+	// 					//console.log(values);
+	// 					//delete values.User;
+	// 					//result.voted = {voted: 'true'};
+	// 				  console.log("There are " + c + " projects with an id greater than 25.")
+ 				//});
+				//console.log(voted);
+	 	    	//	res.json(result);
+		    //	}
+				
+		//	})
+		//})
+				// Issues.findOne({
+// 	 			   include:[
+// 	 				  {model: Users, as: 'Vote', attributes: {include: [[app.db.sequelize.fn('COUNT', app.db.sequelize.col('Vote.id')), 'count']] }, through: { where: {Votes.user_id==}}, duplicating:false  },
+// 	 				  {model: Users, attributes: ["firstName", "lastName","user_photo"], duplicating: false},
+// 	 				  {model: Categories, attributes:[ 'title'], duplicating: false}],
+// 	 			   where: {id: req.params.id}
+// 				})
+
+		    
+		  //  })
 			.catch(error => {
 				res.status(412).json({msg: error.message});
 			});
@@ -200,15 +280,35 @@ module.exports = app => {
 	   .post(app.auth.authenticate(), (req, res) =>{
 		   req.body.user_id = req.user.id;
 			   req.body.issue_id = req.params.id;
-			   Votes.create(req.body)
-			    .then(result => res.json(result))
+			   Votes.findOrCreate({where: {user_id: req.body.user_id, issue_id: req.body.issue_id}})
+			   // .spread(function(user, created) {
+  //       		   console.log(user.get({
+  //         			 	plain: true
+  //       		   }))
+  //       		   console.log(created);
+  // 				   res.json(user);
+  // 			   }
+ // .then(result=> res.json({voted: result[1]}))
+  .spread(function(user, voted) {
+	  if (voted){
+		  return (res.json({status: 'created'}));
+	  }else{
+   	   		Votes.destroy({where: {
+		   	 	issue_id: req.params.id,
+		   	 	user_id: req.user.id
+	   	 	}});
+		  return (res.json({status: 'deleted'}));
+	  }
+   })
+			  //  .then(result => res.json(result))
 			    .catch(error => {
 			    	res.status(412).json({msg: error.message});
 			    });
 	   })
+	   
 	   .delete(app.auth.authenticate(), (req, res) => { // check role
 	   	   Votes.destroy({where: {
-			   id: req.params.id,
+			   issue_id: req.params.id,
 			   user_id: req.user.id
 		   }})
 		    .then(result => res.sendStatus(204))
