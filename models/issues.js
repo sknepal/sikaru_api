@@ -68,13 +68,18 @@ module.exports = function(sequelize, DataTypes) {
  	      var values = this.get();
 		 // for (var k in values){
 			//  console.log(values.Vote);
-			  if (this.Vote[0]){
-			  	values.votes = this.Vote[0].dataValues.count;
-				  console.log(this.Vote[0].dataValues.count);
-			  }else{
-				  values.votes = 0;
-			  }
-			 delete values.Vote;
+			 
+			//if (this.Vote)
+			
+			  if (this.Vote){
+				  if (this.Vote[0]){
+	  			  	values.votes = this.Vote[0].dataValues.count;
+	  				  console.log(this.Vote[0].dataValues.count);
+	  			  }else{
+	  				  values.votes = 0;
+	  			  }
+	  			 delete values.Vote;
+			 }
 			 
 			//  if (values[k].Vote[0]){
 			  //	console.log(values[k].Vote[0].count);

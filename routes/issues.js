@@ -174,17 +174,17 @@ module.exports = app => {
 			         //you can also take the results to make another query and return the promise.
 			   
 			Votes.count({ where: {issue_id: req.params.id, user_id: req.user.id} }),
-			  ]).spread(function(result, count){
-				  console.log(result);
+			  ]).spread(function(result,count){
+				//  console.log(result);
 				//  console.log(count);
 				  var result = result.toJSON();
 //
-// 				  if (result.Vote[0]){
-// 				  	result.votes = result.Vote[0].count;
-// 				  	delete result.Vote;
-// 				}
+				//   if (result.Vote[0]){
+				//   	result.votes = result.Vote[0].count;
+				//   	delete result.Vote;
+				// }
 //
- 				  result.user_vote = count;
+			  result.user_vote = count;
 				  return res.json(result);
 			  })         
 			  //   }).then(function(results) {
