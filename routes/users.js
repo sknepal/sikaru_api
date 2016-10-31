@@ -90,7 +90,8 @@ module.exports = app => {
 			Users.findAll({
 					where: criteria,
 					attributes: ["id", "firstName", "lastName", "email"],
-					limit: 10
+					limit: 10,
+					order: [['updated_at', 'DESC']]
 				})
 				.then(result => res.json(result))
 				.catch(error => {
@@ -353,6 +354,7 @@ module.exports = app => {
 
 					],
 					where: criteria,
+					order: [['updated_at', 'DESC']],
 					limit: 10
 
 				})
@@ -415,7 +417,8 @@ module.exports = app => {
 			}
 			Comments.findAll({
 					where: criteria,
-					limit: 10
+					limit: 10,
+					order: [['updated_at', 'DESC']],
 				})
 				.then(result => {
 					if (result.length >= 1) {

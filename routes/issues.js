@@ -136,7 +136,7 @@ module.exports = app => {
 
 
 					where: criteria,
-
+					order: [['updated_at', 'DESC']],
 					limit: 10
 
 				})
