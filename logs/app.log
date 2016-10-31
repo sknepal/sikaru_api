@@ -2045,3 +2045,299 @@
 {"level":"info","message":"[Sun Oct 30 2016 14:39:28 GMT+0545 (NPT)] Executing (default): SELECT count(*) AS `count` FROM `Votes` AS `Votes` WHERE `Votes`.`issue_id` = '9' AND `Votes`.`user_id` = 3;","timestamp":"2016-10-30T08:54:28.714Z"}
 {"level":"info","message":"[Sun Oct 30 2016 14:39:28 GMT+0545 (NPT)] Executing (default): SELECT `Issues`.`id`, `Issues`.`category_id`, `Issues`.`user_id`, `Issues`.`title`, `Issues`.`description`, `Issues`.`posted_date`, `Issues`.`address`, `Issues`.`solved`, `Issues`.`visibility`, `Issues`.`anon`, `Issues`.`created_at`, `Issues`.`updated_at`, `Vote`.`id` AS `Vote.id`, COUNT(`Vote`.`id`) AS `Vote.count`, `Vote.Votes`.`id` AS `Vote.Votes.id`, `Vote.Votes`.`user_id` AS `Vote.Votes.user_id`, `Vote.Votes`.`issue_id` AS `Vote.Votes.issue_id`, `Vote.Votes`.`created_at` AS `Vote.Votes.created_at`, `Vote.Votes`.`updated_at` AS `Vote.Votes.updated_at`, `User`.`id` AS `User.id`, `User`.`firstName` AS `User.firstName`, `User`.`lastName` AS `User.lastName`, `User`.`user_photo` AS `User.user_photo`, `Category`.`id` AS `Category.id`, `Category`.`title` AS `Category.title` FROM `Issues` AS `Issues` LEFT OUTER JOIN (`Votes` AS `Vote.Votes` INNER JOIN `Users` AS `Vote` ON `Vote`.`id` = `Vote.Votes`.`user_id`) ON `Issues`.`id` = `Vote.Votes`.`issue_id` LEFT OUTER JOIN `Users` AS `User` ON `Issues`.`user_id` = `User`.`id` LEFT OUTER JOIN `Categories` AS `Category` ON `Issues`.`category_id` = `Category`.`id` WHERE `Issues`.`id` = '9';","timestamp":"2016-10-30T08:54:28.721Z"}
 {"level":"info","message":"::1 - - [30/Oct/2016:08:54:28 +0000] \"GET /issues/9/ HTTP/1.1\" 200 519\n","timestamp":"2016-10-30T08:54:28.726Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:41:15 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T08:56:15.164Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:41:15 GMT+0545 (NPT)] Executing (default): SELECT count(*) AS `count` FROM `Votes` AS `Votes` WHERE `Votes`.`issue_id` = '9' AND `Votes`.`user_id` = 3;","timestamp":"2016-10-30T08:56:15.176Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:41:15 GMT+0545 (NPT)] Executing (default): SELECT `Issues`.`id`, `Issues`.`category_id`, `Issues`.`user_id`, `Issues`.`title`, `Issues`.`description`, `Issues`.`posted_date`, `Issues`.`address`, `Issues`.`solved`, `Issues`.`visibility`, `Issues`.`anon`, `Issues`.`created_at`, `Issues`.`updated_at`, `Vote`.`id` AS `Vote.id`, COUNT(`Vote`.`id`) AS `Vote.count`, `Vote.Votes`.`id` AS `Vote.Votes.id`, `Vote.Votes`.`user_id` AS `Vote.Votes.user_id`, `Vote.Votes`.`issue_id` AS `Vote.Votes.issue_id`, `Vote.Votes`.`created_at` AS `Vote.Votes.created_at`, `Vote.Votes`.`updated_at` AS `Vote.Votes.updated_at`, `User`.`id` AS `User.id`, `User`.`firstName` AS `User.firstName`, `User`.`lastName` AS `User.lastName`, `User`.`user_photo` AS `User.user_photo`, `Category`.`id` AS `Category.id`, `Category`.`title` AS `Category.title` FROM `Issues` AS `Issues` LEFT OUTER JOIN (`Votes` AS `Vote.Votes` INNER JOIN `Users` AS `Vote` ON `Vote`.`id` = `Vote.Votes`.`user_id`) ON `Issues`.`id` = `Vote.Votes`.`issue_id` LEFT OUTER JOIN `Users` AS `User` ON `Issues`.`user_id` = `User`.`id` LEFT OUTER JOIN `Categories` AS `Category` ON `Issues`.`category_id` = `Category`.`id` WHERE `Issues`.`id` = '9';","timestamp":"2016-10-30T08:56:15.186Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:08:56:15 +0000] \"GET /issues/9/ HTTP/1.1\" 200 519\n","timestamp":"2016-10-30T08:56:15.204Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:41:19 GMT+0545 (NPT)] Executing (default): SELECT `Issues`.`id`, `Issues`.`category_id`, `Issues`.`user_id`, `Issues`.`title`, `Issues`.`description`, `Issues`.`posted_date`, `Issues`.`address`, `Issues`.`solved`, `Issues`.`visibility`, `Issues`.`anon`, `Issues`.`created_at`, `Issues`.`updated_at`, `Vote`.`id` AS `Vote.id`, COUNT(`Vote`.`id`) AS `Vote.count`, `Vote.Votes`.`id` AS `Vote.Votes.id`, `Vote.Votes`.`user_id` AS `Vote.Votes.user_id`, `Vote.Votes`.`issue_id` AS `Vote.Votes.issue_id`, `Vote.Votes`.`created_at` AS `Vote.Votes.created_at`, `Vote.Votes`.`updated_at` AS `Vote.Votes.updated_at`, `User`.`id` AS `User.id`, `User`.`firstName` AS `User.firstName`, `User`.`lastName` AS `User.lastName`, `User`.`user_photo` AS `User.user_photo`, `Category`.`id` AS `Category.id`, `Category`.`title` AS `Category.title` FROM `Issues` AS `Issues` LEFT OUTER JOIN (`Votes` AS `Vote.Votes` INNER JOIN `Users` AS `Vote` ON `Vote`.`id` = `Vote.Votes`.`user_id`) ON `Issues`.`id` = `Vote.Votes`.`issue_id` LEFT OUTER JOIN `Users` AS `User` ON `Issues`.`user_id` = `User`.`id` LEFT OUTER JOIN `Categories` AS `Category` ON `Issues`.`category_id` = `Category`.`id` GROUP BY `Issues`.`id` LIMIT 10;","timestamp":"2016-10-30T08:56:19.680Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:08:56:19 +0000] \"GET /issues/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T08:56:19.702Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:53 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T08:59:53.099Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:53 GMT+0545 (NPT)] Executing (default): SELECT count(*) AS `count` FROM `Votes` AS `Votes` WHERE `Votes`.`issue_id` = '1' AND `Votes`.`user_id` = 3;","timestamp":"2016-10-30T08:59:53.113Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:53 GMT+0545 (NPT)] Executing (default): SELECT `Issues`.`id`, `Issues`.`category_id`, `Issues`.`user_id`, `Issues`.`title`, `Issues`.`description`, `Issues`.`posted_date`, `Issues`.`address`, `Issues`.`solved`, `Issues`.`visibility`, `Issues`.`anon`, `Issues`.`created_at`, `Issues`.`updated_at`, `Vote`.`id` AS `Vote.id`, COUNT(`Vote`.`id`) AS `Vote.count`, `Vote.Votes`.`id` AS `Vote.Votes.id`, `Vote.Votes`.`user_id` AS `Vote.Votes.user_id`, `Vote.Votes`.`issue_id` AS `Vote.Votes.issue_id`, `Vote.Votes`.`created_at` AS `Vote.Votes.created_at`, `Vote.Votes`.`updated_at` AS `Vote.Votes.updated_at`, `User`.`id` AS `User.id`, `User`.`firstName` AS `User.firstName`, `User`.`lastName` AS `User.lastName`, `User`.`user_photo` AS `User.user_photo`, `Category`.`id` AS `Category.id`, `Category`.`title` AS `Category.title` FROM `Issues` AS `Issues` LEFT OUTER JOIN (`Votes` AS `Vote.Votes` INNER JOIN `Users` AS `Vote` ON `Vote`.`id` = `Vote.Votes`.`user_id`) ON `Issues`.`id` = `Vote.Votes`.`issue_id` LEFT OUTER JOIN `Users` AS `User` ON `Issues`.`user_id` = `User`.`id` LEFT OUTER JOIN `Categories` AS `Category` ON `Issues`.`category_id` = `Category`.`id` WHERE `Issues`.`id` = '1';","timestamp":"2016-10-30T08:59:53.124Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:08:59:53 +0000] \"GET /issues/1 HTTP/1.1\" 200 526\n","timestamp":"2016-10-30T08:59:53.144Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:56 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T08:59:56.217Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:56 GMT+0545 (NPT)] Executing (default): SELECT count(*) AS `count` FROM `Votes` AS `Votes` WHERE `Votes`.`issue_id` = '2' AND `Votes`.`user_id` = 3;","timestamp":"2016-10-30T08:59:56.222Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:44:56 GMT+0545 (NPT)] Executing (default): SELECT `Issues`.`id`, `Issues`.`category_id`, `Issues`.`user_id`, `Issues`.`title`, `Issues`.`description`, `Issues`.`posted_date`, `Issues`.`address`, `Issues`.`solved`, `Issues`.`visibility`, `Issues`.`anon`, `Issues`.`created_at`, `Issues`.`updated_at`, `Vote`.`id` AS `Vote.id`, COUNT(`Vote`.`id`) AS `Vote.count`, `Vote.Votes`.`id` AS `Vote.Votes.id`, `Vote.Votes`.`user_id` AS `Vote.Votes.user_id`, `Vote.Votes`.`issue_id` AS `Vote.Votes.issue_id`, `Vote.Votes`.`created_at` AS `Vote.Votes.created_at`, `Vote.Votes`.`updated_at` AS `Vote.Votes.updated_at`, `User`.`id` AS `User.id`, `User`.`firstName` AS `User.firstName`, `User`.`lastName` AS `User.lastName`, `User`.`user_photo` AS `User.user_photo`, `Category`.`id` AS `Category.id`, `Category`.`title` AS `Category.title` FROM `Issues` AS `Issues` LEFT OUTER JOIN (`Votes` AS `Vote.Votes` INNER JOIN `Users` AS `Vote` ON `Vote`.`id` = `Vote.Votes`.`user_id`) ON `Issues`.`id` = `Vote.Votes`.`issue_id` LEFT OUTER JOIN `Users` AS `User` ON `Issues`.`user_id` = `User`.`id` LEFT OUTER JOIN `Categories` AS `Category` ON `Issues`.`category_id` = `Category`.`id` WHERE `Issues`.`id` = '2';","timestamp":"2016-10-30T08:59:56.228Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:08:59:56 +0000] \"GET /issues/2 HTTP/1.1\" 200 519\n","timestamp":"2016-10-30T08:59:56.235Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:46:53 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email` FROM `Users` AS `Users` LIMIT 10;","timestamp":"2016-10-30T09:01:53.752Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:01:53 +0000] \"GET /users HTTP/1.1\" 200 237\n","timestamp":"2016-10-30T09:01:53.799Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:46:57 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email` FROM `Users` AS `Users` WHERE `Users`.`id` = '2';","timestamp":"2016-10-30T09:01:57.402Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:01:57 +0000] \"GET /users/2 HTTP/1.1\" 200 93\n","timestamp":"2016-10-30T09:01:57.406Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:01 GMT+0545 (NPT)] Executing (default): SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`email`, `Users`.`user_photo`, `Users`.`role_id`, `Users`.`created_at`, `Users`.`updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = '2';","timestamp":"2016-10-30T09:02:01.264Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:01 GMT+0545 (NPT)] Executing (default): SELECT `id`, `category_id`, `user_id`, `title`, `description`, `posted_date`, `address`, `solved`, `visibility`, `anon`, `created_at`, `updated_at` FROM `Issues` AS `Issues` WHERE (`Issues`.`user_id` IN (2)) LIMIT 10;","timestamp":"2016-10-30T09:02:01.274Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:02:01 +0000] \"GET /users/2/issues HTTP/1.1\" 200 807\n","timestamp":"2016-10-30T09:02:01.290Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:05 GMT+0545 (NPT)] Executing (default): SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`email`, `Users`.`user_photo`, `Users`.`role_id`, `Users`.`created_at`, `Users`.`updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = '3';","timestamp":"2016-10-30T09:02:05.360Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:05 GMT+0545 (NPT)] Executing (default): SELECT `id`, `category_id`, `user_id`, `title`, `description`, `posted_date`, `address`, `solved`, `visibility`, `anon`, `created_at`, `updated_at` FROM `Issues` AS `Issues` WHERE (`Issues`.`user_id` IN (3)) LIMIT 10;","timestamp":"2016-10-30T09:02:05.370Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:02:05 +0000] \"GET /users/3/issues HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T09:02:05.432Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:19 GMT+0545 (NPT)] Executing (default): SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`email`, `Users`.`user_photo`, `Users`.`role_id`, `Users`.`created_at`, `Users`.`updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T09:02:19.330Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:19 GMT+0545 (NPT)] Executing (default): SELECT `id`, `user_id`, `issue_id`, `comment`, `created_at`, `updated_at` FROM `Comments` AS `Comments` WHERE (`Comments`.`user_id` IN (3) AND (`Comments`.`user_id` = 3 AND `Comments`.`created_at` < 'Invalid date')) LIMIT 10;","timestamp":"2016-10-30T09:02:19.388Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:02:19 +0000] \"GET /users/3/comments HTTP/1.1\" 200 292\n","timestamp":"2016-10-30T09:02:19.397Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:22 GMT+0545 (NPT)] Executing (default): SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`email`, `Users`.`user_photo`, `Users`.`role_id`, `Users`.`created_at`, `Users`.`updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 2;","timestamp":"2016-10-30T09:02:22.317Z"}
+{"level":"info","message":"[Sun Oct 30 2016 14:47:22 GMT+0545 (NPT)] Executing (default): SELECT `id`, `user_id`, `issue_id`, `comment`, `created_at`, `updated_at` FROM `Comments` AS `Comments` WHERE (`Comments`.`user_id` IN (2) AND (`Comments`.`user_id` = 2 AND `Comments`.`created_at` < 'Invalid date')) LIMIT 10;","timestamp":"2016-10-30T09:02:22.335Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:02:22 +0000] \"GET /users/2/comments HTTP/1.1\" 200 295\n","timestamp":"2016-10-30T09:02:22.339Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:09:02:26 +0000] \"GET /comments/1 HTTP/1.1\" 404 23\n","timestamp":"2016-10-30T09:02:26.324Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.406Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.531Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.533Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.554Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.556Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.552Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.635Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.686Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/api_project.js?v=1477834345646 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T13:32:25.703Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.702Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.715Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/locale.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.720Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.722Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.727Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/api_data.js?v=1477834345646 HTTP/1.1\" 200 689\n","timestamp":"2016-10-30T13:32:25.730Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.731Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.741Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.756Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/nl.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.784Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/ca.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.784Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/ru.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.788Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/fr.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.791Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/zh.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.792Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/de.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.805Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.807Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/pt_br.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.808Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/es.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.808Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/locales/pl.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.814Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.865Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.872Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:32:25 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477834345646 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:32:25.896Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/main.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.610Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.610Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.617Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.627Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.624Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.785Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.788Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.797Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.800Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.805Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/main.js HTTP/1.1\" 304 -\n","timestamp":"2016-10-30T13:37:21.911Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/api_project.js?v=1477834641920 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T13:37:21.960Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/api_data.js?v=1477834641920 HTTP/1.1\" 200 689\n","timestamp":"2016-10-30T13:37:21.963Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.965Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/locales/locale.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.969Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.974Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.979Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.979Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.981Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.984Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.988Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:21 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:21.991Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/de.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.017Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/fr.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.017Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/pt_br.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.024Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/pl.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.027Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/ru.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.028Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.029Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/ca.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.032Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/zh.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.034Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/nl.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.036Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/es.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.039Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.045Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.067Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:22 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477834641920 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:22.088Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.425Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.499Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.510Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.552Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.549Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.566Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.638Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/api_data.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.691Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.695Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.700Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.710Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.711Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.720Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.723Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/locale.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.724Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/api_project.js?v=1477834664644 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T13:37:44.731Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.733Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.747Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/ca.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.759Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/fr.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.768Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.770Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/nl.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.768Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/pt_br.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.775Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/ru.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.776Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/pl.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.780Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.781Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/zh.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.782Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/es.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.787Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/locales/de.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.788Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.804Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:13:37:44 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477834664644 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T13:37:44.819Z"}
+{"level":"info","message":"[Sun Oct 30 2016 20:36:21 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T14:51:21.486Z"}
+{"level":"info","message":"[Sun Oct 30 2016 20:36:21 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T14:51:21.571Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:14:51:21 +0000] \"GET /user HTTP/1.1\" 200 423\n","timestamp":"2016-10-30T14:51:21.599Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:02:26 +0000] \"GET /user HTTP/1.1\" 401 -\n","timestamp":"2016-10-30T15:02:26.065Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:03:02 +0000] \"GET /user HTTP/1.1\" 401 -\n","timestamp":"2016-10-30T15:03:02.736Z"}
+{"level":"info","message":"[Sun Oct 30 2016 20:48:10 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T15:03:10.691Z"}
+{"level":"info","message":"[Sun Oct 30 2016 20:48:10 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `password`, `dob`, `phonenumber`, `sex`, `profession`, `address`, `user_photo`, `role_id`, `created_at`, `updated_at` FROM `Users` AS `Users` WHERE `Users`.`id` = 3;","timestamp":"2016-10-30T15:03:10.710Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:03:10 +0000] \"GET /user HTTP/1.1\" 200 423\n","timestamp":"2016-10-30T15:03:10.723Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:16:46 +0000] \"POST /users HTTP/1.1\" 400 981\n","timestamp":"2016-10-30T15:16:46.754Z"}
+{"level":"info","message":"[Sun Oct 30 2016 21:01:51 GMT+0545 (NPT)] Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`password`,`phonenumber`,`role_id`,`created_at`,`updated_at`) VALUES (DEFAULT,'admin','test','adf@admin.com','$2a$10$rvE4j6j7Njpt99jRAL5fo.YCGfneFMYMxakRCd5vz3sRBaTzTBthK','3423424',2,'2016-10-30 15:16:51','2016-10-30 15:16:51');","timestamp":"2016-10-30T15:16:51.241Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:16:51 +0000] \"POST /users HTTP/1.1\" 412 233\n","timestamp":"2016-10-30T15:16:51.280Z"}
+{"level":"info","message":"[Sun Oct 30 2016 21:02:01 GMT+0545 (NPT)] Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`password`,`phonenumber`,`role_id`,`created_at`,`updated_at`) VALUES (DEFAULT,'admin','test','adf@admin.com','$2a$10$hiPVAhbcTFei4sZqMma3n.LfgxG3b.lMzJjVCZtUUiYGDLGfjZ6Ji','3423424',1,'2016-10-30 15:17:01','2016-10-30 15:17:01');","timestamp":"2016-10-30T15:17:01.575Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:17:01 +0000] \"POST /users HTTP/1.1\" 200 315\n","timestamp":"2016-10-30T15:17:01.581Z"}
+{"level":"info","message":"[Sun Oct 30 2016 21:11:56 GMT+0545 (NPT)] Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`password`,`phonenumber`,`role_id`,`created_at`,`updated_at`) VALUES (DEFAULT,'','test','adf@admin.com','$2a$10$xCVzAFv/Wzv.1uSKijeU3u.pDn3pzhu7aKWbLn/B6fnUaJ1ziW/EW','3423424',1,'2016-10-30 15:26:56','2016-10-30 15:26:56');","timestamp":"2016-10-30T15:26:56.794Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:26:56 +0000] \"POST /users HTTP/1.1\" 200 310\n","timestamp":"2016-10-30T15:26:56.802Z"}
+{"level":"info","message":"[Sun Oct 30 2016 21:12:09 GMT+0545 (NPT)] Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`password`,`phonenumber`,`role_id`,`created_at`,`updated_at`) VALUES (DEFAULT,123,'test','adf@admin.com','$2a$10$EgfOGGSOE7W/RbiogpYFieut9LTD6TKD6CZHH.3dyX4s2YRlZZcQ.','3423424',1,'2016-10-30 15:27:09','2016-10-30 15:27:09');","timestamp":"2016-10-30T15:27:09.548Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:27:09 +0000] \"POST /users HTTP/1.1\" 200 311\n","timestamp":"2016-10-30T15:27:09.553Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:27:46 +0000] \"POST /users HTTP/1.1\" 412 62\n","timestamp":"2016-10-30T15:27:46.434Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.242Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.326Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.350Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.378Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.396Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.410Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.471Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/api_data.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.531Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.532Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.534Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.534Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.538Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.544Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.548Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.549Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/locale.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.553Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.554Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/api_project.js?v=1477841373486 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T15:29:33.563Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.577Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/ca.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.598Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/de.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.602Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/pl.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.604Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/nl.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.605Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/pt_br.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.608Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/ru.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.614Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/es.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.615Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.625Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/zh.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.637Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/fr.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.637Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.640Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:29:33 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477841373486 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:29:33.642Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.679Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.736Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.759Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.791Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.795Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.809Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.850Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/locale.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.890Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/api_project.js?v=1477841476857 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T15:31:16.890Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.897Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/api_data.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.904Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.906Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.908Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.911Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.917Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.920Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/de.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.943Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/ca.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.945Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/pl.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.949Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/es.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.951Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/ru.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.953Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.953Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/zh.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.959Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/pt_br.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.959Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/nl.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.961Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.971Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.974Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/fr.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.976Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.977Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.987Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:15:31:16 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477841476857 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T15:31:16.999Z"}
+{"level":"info","message":"[Sun Oct 30 2016 21:50:05 GMT+0545 (NPT)] Executing (default): SELECT `id`, `firstName`, `lastName`, `email` FROM `Users` AS `Users` LIMIT 10;","timestamp":"2016-10-30T16:05:05.294Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:05:05 +0000] \"GET /users HTTP/1.1\" 200 593\n","timestamp":"2016-10-30T16:05:05.303Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.658Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.733Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.765Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.798Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.797Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.795Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.840Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.908Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/api_data.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.922Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.924Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/api_project.js?v=1477844039850 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T16:13:59.929Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.934Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.936Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/locale.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.937Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.943Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.956Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/es.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.961Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/fr.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.968Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/nl.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.973Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/ca.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.976Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/pl.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.978Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/de.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.978Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/pt_br.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.982Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/ru.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.987Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/zh.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.988Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.989Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.994Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:13:59 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:13:59.995Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:14:00 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:14:00.005Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:14:00 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:14:00.017Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:14:00 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477844039850 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:14:00.027Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.121Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.202Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/require.min.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.205Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.253Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/css/style.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.254Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/polyfill.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.271Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/main.js HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.330Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/api_project.js?v=1477844234333 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T16:17:14.371Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/api_data.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.375Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.384Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.385Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.389Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.391Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/path-to-regexp/index.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.393Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.400Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/locale.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.401Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.403Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.413Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/handlebars.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.416Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/nl.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.432Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/pt_br.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.440Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/ru.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.444Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/de.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.446Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/fr.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.449Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.451Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/ca.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.451Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/pl.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.453Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/zh.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.457Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/locales/es.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.458Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.465Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:17:14 +0000] \"GET /apidoc/vendor/diff_match_patch.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:17:14.476Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/api_data.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.283Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/ru.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.305Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/ HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.291Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/api_project.js?v=1477844234333 HTTP/1.1\" 200 349\n","timestamp":"2016-10-30T16:18:55.320Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/zh_cn.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.320Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/pl.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.324Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/pt_br.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.327Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/locale.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.327Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/bootstrap.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.334Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/jquery.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.342Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/utils/handlebars_helper.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.348Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/lodash.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.356Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/bootstrap.min.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.361Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/prettify.css HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.363Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/ca.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.308Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/es.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.374Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/de.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.374Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/utils/send_sample_request.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.379Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/semver.min.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.380Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/webfontloader.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.383Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/zh.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.388Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/fr.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.389Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/locales/nl.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.394Z"}
+{"level":"info","message":"::1 - - [30/Oct/2016:16:18:55 +0000] \"GET /apidoc/vendor/prettify/prettify.js?v=1477844234333 HTTP/1.1\" 200 -\n","timestamp":"2016-10-30T16:18:55.395Z"}

@@ -2,7 +2,7 @@ import cluster from "cluster";
 import os from "os";
 
 const CPUS = os.cpus();
-if (cluster.isMaster){
+if (cluster.isMaster) {
 	CPUS.forEach(() => cluster.fork());
 	cluster.on("listening", worker => {
 		console.log("Cluster %d connected", worker.process.pid);
@@ -15,6 +15,6 @@ if (cluster.isMaster){
 		cluster.fork();
 		// Ensure to start a new cluster if an old one dies
 	});
-}else{
+} else {
 	require("./index.js");
 }

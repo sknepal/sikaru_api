@@ -4,12 +4,20 @@
   "description": "Public Stuff API",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clusters",
-    "clusters": "babel-node clusters.js"
+    "start": "npm run apidoc && npm run clusters",
+    "clusters": "babel-node clusters.js",
+	"apidoc": "apidoc -i routes/ -o public/apidoc"
+  },
+  "apidoc":{
+	  "name": "Public Stuff API - Documentation",
+	  "template" :{
+		  "forceLanguage": "en"
+	  }
   },
   "author": "Subigya Kumar Nepal",
   "license": "ISC",
   "dependencies": {
+    "apidoc": "^0.15.1",
     "babel-cli": "^6.5.1",
     "babel-preset-es2015": "^6.5.0",
     "bcrypt": "^0.8.5",
