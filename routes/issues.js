@@ -3,6 +3,7 @@ module.exports = app => {
 	const Votes = app.db.models.Votes;
 	const Users = app.db.models.Users;
 	const Categories = app.db.models.Categories;
+	const Comments = app.db.models.Comments;
 	app.route("/issues")
 		/**
 	 * @api {get} /issues List the issues 
@@ -475,5 +476,65 @@ module.exports = app => {
 					msg: error.message
 				});
 			});
+		});
+		
+app.route("/issues/:id/comments")
+	/**
+	 * @api {get} /issues/:id/comments List the comments on an issue
+	 * @apiGroup Comment
+	 * @apiPermission user
+	 * @apiHeader {String} Authorization Token of authenticated user
+	 * @apiHeaderExample {json} Header
+	 * 		{"Authorization": "JWT abc.xyz.123.gfh"}
+	 * @apiParam {id} id Issue Id
+	 * @apiSuccess {Number} id Comment Id
+	 * @apiSuccess {Number} user_id Commentor's Id
+	 * @apiSuccess {Number} issue_id Issue Id
+	 * @apiSuccess {String} comment Comment contents
+	 * @apiSuccess {Date} updated_at Comment update date
+	 * @apiSuccess {Date} created_at Comment created date
+	 * @apiSuccessExample {json} Success
+	 * 		HTTP/1.1 200 OK
+	 *		[
+	 *			{
+	 *		  		"id": 1,
+	 *		  		"user_id": 1,
+	 *		  		"issue_id": 1,
+	 *		  		"comment": "Manholes should be covered",
+	 *		  		"updated_at": "2016-10-30T18:49:42.000Z",
+	 *		  		"created_at": "2016-10-30T18:49:42.000Z"
+	 *			}
+	 *		]
+	 * @apiErrorExample {json} List error
+	 * 		HTTP/1.1 412 Precondition Failed
+	 * @apiErrorExample {json} Authentication error
+	 * 		HTTP/1.1 401 Unauthorized
+	 * @apiErrorExample {json} Comments not found error
+	 * 		HTTP/1.1 404 Not Found
+	 */
+	.get(app.auth.authenticate(), (req, res) => {
+		req.body.issue_id = req.params.id;
+		Comments.findAll({
+			where: {
+				issue_id: req.body.issue_id
+			},
+					order: [['updated_at', 'DESC']]
 		})
+		.then(function(result) {
+			if (result.length >= 1) {
+				return res.json(result);
+			} else {
+				res.sendStatus(404);
+			}
+
+		})
+
+		.catch(error => {
+			res.status(412).json({
+				msg: error.message
+			});
+		});
+	});
+		
+	
 };

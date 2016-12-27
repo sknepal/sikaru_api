@@ -70,7 +70,6 @@ module.exports = function(sequelize, DataTypes) {
 				if (this.Vote) {
 					if (this.Vote[0]) {
 						values.votes = this.Vote[0].dataValues.count;
-						console.log(this.Vote[0].dataValues.count);
 					} else {
 						values.votes = 0;
 					}
