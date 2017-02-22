@@ -57,6 +57,7 @@ module.exports = function(sequelize, DataTypes) {
 				Issues.belongsTo(models.Users);
 				Issues.belongsTo(models.Categories);
 				Issues.hasMany(models.Comments);
+				Issues.hasMany(models.Photos);
 				Issues.belongsToMany(models.Users, {
 					as: 'Vote',
 					through: models.Votes

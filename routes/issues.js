@@ -4,6 +4,7 @@ module.exports = app => {
 	const Users = app.db.models.Users;
 	const Categories = app.db.models.Categories;
 	const Comments = app.db.models.Comments;
+	const Photos = app.db.models.Photos;
 	app.route("/issues")
 		/**
 	 * @api {get} /issues List the issues 
@@ -478,6 +479,7 @@ module.exports = app => {
 			});
 		});
 		
+	
 app.route("/issues/:id/comments")
 	/**
 	 * @api {get} /issues/:id/comments List the comments on an issue

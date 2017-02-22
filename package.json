@@ -6,13 +6,13 @@
   "scripts": {
     "start": "npm run apidoc && npm run clusters",
     "clusters": "babel-node clusters.js",
-	"apidoc": "apidoc -i routes/ -o public/apidoc"
+    "apidoc": "apidoc -i routes/ -o public/apidoc"
   },
-  "apidoc":{
-	  "name": "Public Stuff API - Documentation",
-	  "template" :{
-		  "forceLanguage": "en"
-	  }
+  "apidoc": {
+    "name": "Public Stuff API - Documentation",
+    "template": {
+      "forceLanguage": "en"
+    }
   },
   "author": "Subigya Kumar Nepal",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "helmet": "^1.1.0",
     "jwt-simple": "^0.4.1",
     "morgan": "^1.6.1",
+    "multer": "^1.3.0",
     "mysql": "^2.11.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",

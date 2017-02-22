@@ -36,7 +36,11 @@ module.exports = app => {
 							id: user.id
 						};
 						res.json({
-							token: jwt.encode(payload, cfg.jwtSecret)
+							token: jwt.encode(payload, cfg.jwtSecret),
+							id: user.id,
+							email: user.email,
+							firstName: user.firstName,
+							lastName: user.lastName
 						});
 					} else {
 						res.sendStatus(401);
