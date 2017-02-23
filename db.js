@@ -11,7 +11,12 @@ module.exports = app => {
 			config.database,
 			config.username,
 			config.password,
-			config.params
+			config.params,
+			 pool: {
+    max: 5,
+    min: 0,
+    idle: 30000
+  }
 		);
 		db = {
 			sequelize,
