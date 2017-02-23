@@ -2,7 +2,7 @@ import logger from "./logger.js"
 module.exports = {
 	database: "heroku_736b203e2aca3eb",
 	username: "bd3ef237df9495",
-	password: "2bdf3c3",
+	password: "2bdf3c35",
 	params: {
 		host: "us-cdbr-iron-east-04.cleardb.net",
 		port: 3306,
