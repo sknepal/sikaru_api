@@ -6,6 +6,11 @@ module.exports = {
 	params: {
 		host: "us-cdbr-iron-east-04.cleardb.net",
 		dialect: "mysql",
+		pool: {
+		    max: 5,
+		    min: 0,
+		    idle: 10000
+		  },
 		logging: (sql) => {
 			logger.info(`[${new Date()}] ${sql}`);
 		},
