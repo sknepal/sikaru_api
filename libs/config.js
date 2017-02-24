@@ -1,6 +1,6 @@
 import logger from "./logger.js"
 module.exports = {
-	database: "heroku_736b203e2aca3eb",
+	database: "heroku_736b203e2aca3eb?reconnect=true",
 	username: "bd3ef237df9495",
 	password: "2bdf3c35",
 	params: {
