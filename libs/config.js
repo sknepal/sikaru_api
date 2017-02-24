@@ -5,7 +5,7 @@ module.exports = {
 	password: "2bdf3c35",
 	params: {
 		host: "us-cdbr-iron-east-04.cleardb.net",
-		port: 3306,
+		port: process.env.PORT || 3000,
 		dialect: "mysql",
 		logging: (sql) => {
 			logger.info(`[${new Date()}] ${sql}`);
