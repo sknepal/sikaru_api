@@ -8,7 +8,7 @@ import logger from "./logger.js";
 
 
 module.exports = app => {
-	app.set("port", 3000);
+	app.set("port", process.env.PORT || 3000);
 	app.set("json spaces", 4);
 	app.use(morgan("common", {
 		stream: {
