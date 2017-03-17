@@ -545,10 +545,9 @@ module.exports = app => {
 			Users.update(req.body, {
 					where: {
 						id: req.user.id
-					},
-					individualHooks: true
+					}
 				})
-				.then(result => res.sendStatus(204))
+				.then(result => res.status(400).json({result: result}))
 				.catch(error => {
 					res.status(412).json({
 						msg: error.message

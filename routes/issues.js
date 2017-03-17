@@ -112,7 +112,7 @@ module.exports = app => {
 
 			Issues.findAll({
 
-					group: ['Issues.id'],
+					group: ['Issues.id', 'Vote.id'],
 
 					include: [{
 							model: Users,

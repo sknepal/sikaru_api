@@ -1,9 +1,12 @@
 import cluster from "cluster";
 import os from "os";
 
+var numWorkers = process.env.WEB_CONCURRENCY;
 const CPUS = os.cpus();
 if (cluster.isMaster) {
-	CPUS.forEach(() => cluster.fork());
+for (var i = 0; i < numWorkers; i++) {
+    cluster.fork();
+  }
 	cluster.on("listening", worker => {
 		console.log("Cluster %d connected", worker.process.pid);
 	});
