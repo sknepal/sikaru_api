@@ -280,7 +280,7 @@ app.route("/issues/:id/photos")
 	var image = req.body.image_name;
 	
     var options = {
-      root: './uploads/issues/',
+		root: './',
       dotfiles: 'deny',
       headers: {
           'x-timestamp': Date.now(),

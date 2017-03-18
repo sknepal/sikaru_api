@@ -308,7 +308,7 @@ module.exports = app => {
 		 * @apiErrorExample {json} Authentication error
 		 * 		HTTP/1.1 401 Unauthorized
 		 */
-		.get((req, res) => {
+		.get(app.auth.authenticate(),(req, res) => {
 			var criteria = {}
 
 			var sortBy = req.query.sortBy ? req.query.sortBy : "created_date";
@@ -359,8 +359,22 @@ module.exports = app => {
 
 				})
 				.then(result => {
+					
+					
 					if (result.length >= 1) {
-						res.json(result);
+						var jsonString = JSON.stringify(result);
+
+						var obj = JSON.parse(jsonString);
+						var final_result = [];
+						obj.map(function(item) {
+							if  (item.anon == true && item.user_id==req.user.id || item.anon==false){
+									final_result.push(item);
+								}
+						});
+
+						return res.json(final_result);
+						
+						
 					} else {
 						res.sendStatus(404);
 					}
