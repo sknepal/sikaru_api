@@ -272,12 +272,13 @@ app.route("/issues/:id/photos")
     // Everything went fine
   });
   
-  app.route("/photos")
+  app.route("/photos/:image")
   .get(app.auth.authenticate(), (req, res) => {
 	//req.body.user_id = req.user.id;
 	
 
-	var image = req.headers.image;
+	var image = req.params.image;
+	console.log(image);
 	
     var options = {
 		root: './',
@@ -315,7 +316,9 @@ app.route("/issues/:id/photos")
 	// 			msg: error.message
 	// 		});
 	// 	});
-  })
+  });
+  
+  app.route("/photos")
   
 .delete(app.auth.authenticate(), (req, res) => { // check role
 	
