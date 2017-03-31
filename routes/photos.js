@@ -273,12 +273,12 @@ app.route("/issues/:id/photos")
   });
   
   app.route("/photos/:image")
-  .get(app.auth.authenticate(), (req, res) => {
+  .get((req, res) => {
 	//req.body.user_id = req.user.id;
 	
 
 	var image = req.params.image;
-	console.log(image);
+	//console.log(image);
 	
     var options = {
 		root: './',
