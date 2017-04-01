@@ -33,7 +33,8 @@ module.exports = app => {
 				.then(user => {
 					if (Users.isPassword(user.password, password)) {
 						const payload = {
-							id: user.id
+							id: user.id,
+							password: user.password
 						};
 						res.json({
 							token: jwt.encode(payload, cfg.jwtSecret),

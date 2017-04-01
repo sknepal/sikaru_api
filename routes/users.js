@@ -561,7 +561,7 @@ module.exports = app => {
 						id: req.user.id
 					}
 				})
-				.then(result => res.status(400).json({result: result}))
+				.then(result => res.json({result: result}))
 				.catch(error => {
 					res.status(412).json({
 						msg: error.message
