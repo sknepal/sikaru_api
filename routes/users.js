@@ -569,5 +569,112 @@ module.exports = app => {
 				});
 
 		});
+		
+		app.route("/users/forgot")
+			
+		.post((req, res) => {
+			Users.findOne({
+					where: {
+						phonenumber: req.body.phonenumber
+					},
+					attributes: ["id", "phonenumber", "email"]
+				})
+				// .spread(function(user) {
+					.then(result => {
+						if (result){
+							delete req.body.id;
+							delete req.body.phonenumber;
+							
+							var tomorrow = new Date();
+							var forgot_token = require('crypto').randomBytes(32).toString('hex');
+							tomorrow.setDate(tomorrow.getDate() + 1);
+							tomorrow.toISOString().slice(0, 19).replace('T', ' ');
+							
+							req.body.forgot_token = forgot_token
+							req.body.forgot_expiry = tomorrow;
+							
+							Users.update(req.body, {
+								where:{
+									id: result.id
+								}
+							})
+							return (res.json({
+								id: result.id,
+								phonenumber: result.phonenumber,
+								forgot_token: forgot_token
+							}));
+							//console.log(result.id);
+						}	else{
+							res.sendStatus(404);
+							
+						}
+				
+					
+				//	console.log(voted);
+					// if (result) {
+	// 					delete req.body
+	// 					req.body.
+	// 					var forgot_token = require('crypto').randomBytes(32).toString('hex');
+	// 					Users.update()
+	// 					res.json(result);
+	//
+	// 				} else {
+	// 					res.sendStatus(404);
+	// 				}
+				})
+				.catch(error => {
+					res.status(412).json({
+						msg: error.message
+					});
+				});
+			
+		})
+		
+		.put((req, res) => {
+			// Users.findOne({
+// 					where: {
+// 						id: req.body.id
+// 						phonenumber: req.body.phonenumber
+// 						forgot_token: req.body.forgot_token
+// 					}
+// 				})
+// 				.then(result =>
+					// if (result){
+						var currentDate = new Date();
+						currentDate.toISOString().slice(0, 19).replace('T', ' ');
+						
+						//console.log(req.body);
+						//console.log(currentDate);
+						
+						Users.update(req.body, {
+								where: {
+									phonenumber: req.body.phonenumber,
+									forgot_token: req.body.forgot_token,
+									forgot_expiry:{
+										gt: currentDate
+									}
+									
+								}
+							}).then(result => {
+								if (result[0]==0){
+									return (res.status(412).json({
+										msg: "The token may have expired or the phonenumber does not exist in the system."
+									}));
+								}else{
+									return (res.json({
+										msg: "Successfully reset the password. You can now login with the new password."
+									}));
+								}
+							})
+					// }
+				.catch(error => {
+					res.status(412).json({
+						msg: error.message
+					});
+				});
+
+		});
+		
+		
 
 };

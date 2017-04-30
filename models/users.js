@@ -63,7 +63,15 @@ module.exports = function(sequelize, DataTypes) {
 				model: 'Roles',
 				key: 'id'
 			}
-		}
+		},
+			forgot_token: {
+				type: DataTypes.STRING,
+				allowNull: true
+			},
+			forgot_expiry:{
+				type: DataTypes.DATE,
+				allowNull: true
+			}		
 	}, {
 		hooks: {
 			beforeCreate: user => {
@@ -73,7 +81,9 @@ module.exports = function(sequelize, DataTypes) {
 			},
 			beforeBulkUpdate: user =>{ 
 				const salt = bcrypt.genSaltSync();
-                user.attributes.password = bcrypt.hashSync(user.attributes.password, salt);
+                if (user.attributes.password) {
+					user.attributes.password = bcrypt.hashSync(user.attributes.password, salt);
+				}
 			}
 		},
 		classMethods: {
